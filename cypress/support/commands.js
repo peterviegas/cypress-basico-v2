@@ -30,7 +30,7 @@ Cypress.Commands.add('fillMandatoryFieldsAndSubmit', function() {
     cy.get('#email').type('test@outlook.com')
     cy.get('#phone').type('09999999999')
     cy.get('#open-text-area').type('teste')
-    cy.get('button[type="submit"]').click()
+    cy.contains('button', 'Enviar').click()
 
     //cy.get('.success').should('be.visible')
 })
