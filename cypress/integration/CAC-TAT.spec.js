@@ -142,5 +142,15 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             })
     })
 
+    it.only('seleciona um arquivo simulando um drag-and-drop', function() {
+        cy.get('input[type="file"]#file-upload') //Se tiver somente um, pode utilizar sem colocar o #id
+            .should('not.have.value')
+            .selectFile('cypress/fixtures/example.json', { action: 'drag-drop' })
+            .should(function($input) {
+                console.log($input)
+                expect($input[0].files[0].name).to.equal('example.json')
+            })
+    })
+
 
 })
