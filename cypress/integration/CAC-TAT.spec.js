@@ -142,7 +142,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             })
     })
 
-    it.only('seleciona um arquivo simulando um drag-and-drop', function() {
+    it('seleciona um arquivo simulando um drag-and-drop', function() {
         cy.get('input[type="file"]#file-upload') //Se tiver somente um, pode utilizar sem colocar o #id
             .should('not.have.value')
             .selectFile('cypress/fixtures/example.json', { action: 'drag-drop' })
@@ -151,6 +151,17 @@ describe('Central de Atendimento ao Cliente TAT', function() {
                 expect($input[0].files[0].name).to.equal('example.json')
             })
     })
+
+    it.only('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function() {
+        cy.fixture('example.json').as('sampleFile') //Se tiver somente um, pode utilizar sem colocar o #id
+        cy.get('input[type="file"')
+            .selectFile('@sampleFile')
+            .should(function($input) {
+                console.log($input)
+                expect($input[0].files[0].name).to.equal('example.json')
+            })
+    })
+
 
 
 })
