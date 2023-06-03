@@ -34,4 +34,4 @@ If you want to support this project, leave a ⭐.
 
 ___
 
-This project was created with 💚 by [Walmyr](https://walmyr.dev).
+This training was created by [Walmyr](https://walmyr.dev) and modified throughout the course by [Peter Viegas]
